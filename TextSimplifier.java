@@ -1,4 +1,4 @@
 package main;
 
-public class TextSimplifier {
+public class TextSimplifier implements FreqBuilder {
 }
