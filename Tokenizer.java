@@ -1,2 +1,2 @@
-public interface Tokenizer {
+public interface Tokenizer implements Tools{
 }
