@@ -1,4 +1,4 @@
-package main;
+package Factory;
 
 public interface MapFactory {
 }

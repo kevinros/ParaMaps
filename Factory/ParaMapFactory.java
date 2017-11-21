@@ -1,4 +1,4 @@
-package main;
+package Factory;
 
 public class ParaMapFactory implements MapFactory {
 }
