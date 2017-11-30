@@ -10,7 +10,7 @@ public class main {
 
     public static void main(String[] args) throws Exception {
 
-        SentenceTokenizer tokenizer = new SentenceTokenizer();
+        WhiteSpaceTokenizer tokenizer = new WhiteSpaceTokenizer();
         WordFrequency wordFrequency = new WordFrequency();
         String filePath = "src/StringInput.txt";
         String newSentence = new String(Files.readAllBytes(Paths.get(filePath)));
