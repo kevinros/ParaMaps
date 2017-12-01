@@ -8,12 +8,13 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class WhiteSpaceTokenizer implements Tokenizer {
 
     private TokenizerME tokenizer;
-    private ArrayList<String> tokens;
+    private List<String> tokens;
 
     public WhiteSpaceTokenizer() throws Exception {
 
@@ -21,24 +22,28 @@ public class WhiteSpaceTokenizer implements Tokenizer {
         InputStream inputStream = new FileInputStream(file);
         TokenizerModel tokenModel = new TokenizerModel(inputStream); // Loading the Tokenizer model
         this.tokenizer = new TokenizerME(tokenModel); // Instantiating the TokenizerME class
+        this.tokens = new ArrayList<>();
 
     }
 
     public void tokenize(String sentence) {
         String[] tokenArray = this.tokenizer.tokenize(sentence);
-        this.tokens = new ArrayList<String>(Arrays.asList(tokenArray));
+        this.tokens = Arrays.asList(tokenArray);
+
     }
 
     public void removePunctuations() {
         for (int i = 0; i < this.tokens.size(); i++) {
-            if (Pattern.matches("\\[!\"#$%&'*+,-./:;<=>?@[]^_`{|}~]", this.tokens.get(i))) {
+            // Because we our set of tokens is of type List, we need to cast it for the Pattern.matches()
+            //  method
+            if (Pattern.matches("\\[!\"#$%&'*+,-./:;<=>?@[]^_`{|}~]", (String)this.tokens.get(i))) {
                 this.tokens.remove(i);
             }
 
         }
     }
 
-    public ArrayList<String> getTokens() {
+    public List getTokens() {
         return this.tokens;
     }
 
