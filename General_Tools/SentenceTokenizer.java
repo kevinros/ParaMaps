@@ -15,6 +15,7 @@ public class SentenceTokenizer implements Tokenizer {
     private SentenceDetectorME sentenceDetector;
     private List<String> sentences;
 
+    // Constructor
     public SentenceTokenizer() throws Exception {
         File file = new File("src/models/en-sent.bin");
         BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
@@ -23,11 +24,13 @@ public class SentenceTokenizer implements Tokenizer {
         sentences = new ArrayList<>();
     }
 
+    // tokenize() takes in a String input and tokenizes it by sentences.
     public void tokenize(String text) {
         String sentenceArr[] = sentenceDetector.sentDetect(text);
         this.sentences = Arrays.asList(sentenceArr);
     }
 
+    // getTokens() returns the list of sentences.
     public List getTokens() {
         return this.sentences;
     }
