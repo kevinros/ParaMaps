@@ -18,6 +18,7 @@ public class PoSFrequency implements FreqBuilder {
         this.tagger = new Tagger();
     }
 
+    //This takes in an ArrayList of tokens, tags them, and computes frequency of tags.
     @Override
     public HashMap<String, Integer> buildFrequencyMap(ArrayList<String> tokens) {
 
@@ -37,7 +38,7 @@ public class PoSFrequency implements FreqBuilder {
         return this.pOSFreqMap;
 
     }
-
+    //This prints all POSs and their frequencies
     @Override
     public void printFrequencyMap() {
         for(String POS : this.pOSFreqMap.keySet()){
@@ -46,14 +47,14 @@ public class PoSFrequency implements FreqBuilder {
 
     }
 }
-
-    public int getFrequency(String POS) {
+    //This prints the frequency of just one specified POS
+    public void getFrequency(String POS) {
         if(this.pOSFreqMap.containsKey(POS)){
             this.frequency = this.pOSFreqMap.get(POS);
         }
         else{
             this.frequency = 0;
         }
-        return this.frequency;
+        System.out.println(this.frequency);
     }
 }
