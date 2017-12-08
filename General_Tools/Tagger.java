@@ -25,8 +25,6 @@ public class Tagger {
         String[] tags = tagger.tag(tokens);
         return tags;
     }
-    
-
 
 
 
