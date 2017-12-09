@@ -12,7 +12,7 @@ public class PoSFrequency implements FreqBuilder {
     private Tagger tagger;
     private int frequency;
 
-    public PoSFrequency(){
+    public PoSFrequency() throws Exception{
         this.pOSFreqMap = new HashMap<String, Integer>();
         this.tags = new ArrayList<String>();
         this.tagger = new Tagger();

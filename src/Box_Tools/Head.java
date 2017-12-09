@@ -1,4 +1,4 @@
-package Box_Tools;
+package src.Box_Tools;
 
 public class Head {
     // The Head class holds a String variable that represents the subject of the sentence.

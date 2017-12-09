@@ -8,15 +8,21 @@ import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.tokenize.WhitespaceTokenizer;
 //The following is based on OpenNLP online tutorial
 // for tagging parts of speech
+
+
 public class Tagger {
+    //class variables
+    private POSTaggerME tagger;
+    private POSModel model;
 
-    InputStream inputStream = new
-            FileInputStream("C:/OpenNLP_models/en-pos-maxent.bin");
-    POSModel model = new POSModel(inputStream);
-    POSTaggerME tag = new POSTaggerME(model);
-
+    public Tagger() throws Exception {
+        InputStream inputStream = new
+                FileInputStream("src/models/en-pos-maxent.bin");
+        this.model = new POSModel(inputStream);
+        this.tagger = new POSTaggerME(model);
+    }
     //Returned a tagged array from a given sentence
-    public String[] tag (String sentence) {
+    public String[] tagSentence (String sentence) {
         //Tokenizing the sentence using WhitespaceTokenizer class
         WhitespaceTokenizer whitespaceTokenizer = WhitespaceTokenizer.INSTANCE;
         String[] tokens = whitespaceTokenizer.tokenize(sentence);

@@ -1,5 +1,6 @@
 package Box_Tools;
 
+import General_Tools.Tagger;
 import General_Tools.Tools;
 
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ public class BoxBuilder implements Tools {
 
     // Class Variables
     private Box box;
-
     // BoxBuilder() instantiates the BoxBuilder
     public BoxBuilder(){}
 
@@ -21,7 +21,6 @@ public class BoxBuilder implements Tools {
         this.box = new Box();
         this.box.setHead(subject);
         this.box.addManyElementsToBody(descriptions);
-
         return this.box;
     }
 }
